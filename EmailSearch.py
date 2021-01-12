@@ -150,12 +150,12 @@ cookies = [
 def Main():
     # The csv file with your account data should be named "data.csv"
     filename = "data.csv"
+    fieldnames = ['AccountId', 'Email', "First_name", "Last_name"]
 
     with open(filename, "r") as csvfile:
-        reader = csv.DictReader(csvfile)
+        reader = csv.DictReader(csvfile, fieldnames=fieldnames)
 
         with open("email_data.csv", "w", newline="") as target_file:
-            fieldnames = ['AccountId', 'Email', "First_name", "Last_name"]
             writer = csv.DictWriter(target_file, fieldnames=fieldnames)
             writer.writeheader()
 
